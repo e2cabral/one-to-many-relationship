@@ -25,7 +25,7 @@ export class CarsService {
       .then(async (c) => {
         user.cars.push(c._id);
         await this.user.updateOne({ _id: user._id}, user);
-      })
+      });
   }
 
   async update(car: Car, id: string): Promise<void> {
