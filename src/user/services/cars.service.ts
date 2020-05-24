@@ -31,4 +31,8 @@ export class CarsService {
   async update(car: Car, id: string): Promise<void> {
     await this.car.updateOne({ _id: id }, car);
   }
+
+  async delete(id: string): Promise<void> {
+    this.car.deleteOne({ _id: id });
+  }
 }
