@@ -28,13 +28,14 @@ export class CarsController {
     await this.userService
       .getById(userId)
       .then((res: User): User => user = res);
+    
     await this.carsService.save(car, user);
   }
 
   @Put(':userid/:id')
   @HttpCode(204)
-  async update(): Promise<void> {
-
+  async update(@Body() car: Car, @Param('id') id: string): Promise<void> {
+    await this.carsService.update(car, id);
   }
 
   @Delete(':userid/:id')
