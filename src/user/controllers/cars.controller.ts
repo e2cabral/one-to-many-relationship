@@ -40,7 +40,7 @@ export class CarsController {
 
   @Delete(':userid/:id')
   @HttpCode(200)
-  async delete(): Promise<void> {
-
+  async delete(@Param('id') id: string): Promise<void> {
+    this.carsService.delete(id);
   }
 }
