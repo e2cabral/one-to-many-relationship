@@ -16,7 +16,7 @@ export class CarsService {
   }
 
   async getById(id: string | number): Promise<Car> {
-    return await this.car.findOne({ _id: id });
+    return await this.car.findOne({ _id: id }).populate('user');
   }
 
   async save(car: Car, user: User): Promise<void> {
