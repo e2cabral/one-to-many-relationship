@@ -27,4 +27,8 @@ export class CarsService {
         await this.user.updateOne({ _id: user._id}, user);
       })
   }
+
+  async update(car: Car, id: string): Promise<void> {
+    await this.car.updateOne({ _id: id }, car);
+  }
 }
